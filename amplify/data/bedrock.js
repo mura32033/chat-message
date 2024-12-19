@@ -3,6 +3,7 @@ export function request(ctx) {
   const app_type = ctx.arguments.app_type;
   const temperature = ctx.arguments.temperature;
   const who = ctx.arguments.who;
+  const mode = ctx.arguments.generateMode;
 
   const temp_jp = () => {
     switch (temperature) {
@@ -36,7 +37,13 @@ export function request(ctx) {
     }
   };
 
-  const prompt = `${temp_jp}内容を${app_type}で${who_jp}に送るので、${app_type}に合った文章を日本語で生成してください。\n\n${ingredients}`;
+  const prompt = () => {
+    if (mode) {
+      return `以下に箇条書きした内容を${temp_jp}感じで${app_type}で${who_jp}に送るので、${app_type}に合った文章を日本語で生成してください。そのまま送ってしまいたいので本文だけ作ってください。\n\n${ingredients}`;
+    } else {
+      return `以下の${temp_jp}感じの文章を「${app_type}で${who_jp}に送る」という条件を考慮して添削してください。ただし、修正した文章と指摘点がわかるようにしてください。\n\n${ingredients}`;
+    }
+  };
 
   return {
     resourcePath: `/model/anthropic.claude-3-5-sonnet-20240620-v1:0/invoke`,

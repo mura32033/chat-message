@@ -6,6 +6,7 @@ export async function generateRecipe(formData: FormData) {
     app_type: formData.get("app_type")?.toString() || "",
     temperature: formData.get("temperature")?.toString() || "",
     who: formData.get("who")?.toString() || "",
+    isGenerateMode: formData.get("isGenerateMode") === "true",
   });
 
   const res = JSON.parse(response.data?.body!);
