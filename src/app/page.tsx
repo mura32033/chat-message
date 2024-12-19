@@ -51,8 +51,8 @@ export default function Home() {
           </select>
           で
           <select
-            name="tempareture"
-            id="tempareture"
+            name="temperature"
+            id="temperature"
             className="border border-black  text-gray-900 p-4 rounded-lg max-w-full w-full text-xl "
           >
             <option value="neutral">普通</option>
