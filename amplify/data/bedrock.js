@@ -2,21 +2,41 @@ export function request(ctx) {
   const ingredients = ctx.arguments.ingredients;
   const app_type = ctx.arguments.app_type;
   const temperature = ctx.arguments.temperature;
+  const who = ctx.arguments.who;
 
   const temp_jp = () => {
     switch (temperature) {
       case "neutral":
-        return "普通";
+        return "普通な";
       case "request":
-        return "依頼";
+        return "依頼する";
       case "thank":
-        return "感謝";
+        return "感謝する";
       case "apologize":
-        return "謝罪";
+        return "謝罪する";
     }
   };
 
-  const prompt = `${temp_jp}する以下の内容を${app_type}で送るので、${app_type}に合った文章を日本語で生成してください。\n\n${ingredients}`;
+  const who_jp = () => {
+    switch (who) {
+      case "attached_manager":
+        return "直属の上司";
+      case "outbound":
+        return "社外の人";
+      case "senior_close":
+        return "親しい先輩";
+      case "senior_stranger":
+        return "知らない先輩";
+      case "junior_close":
+        return "親しい後輩";
+      case "junior_stranger":
+        return "知らない後輩";
+      case "friend":
+        return "友達";
+    }
+  };
+
+  const prompt = `${temp_jp}内容を${app_type}で${who_jp}に送るので、${app_type}に合った文章を日本語で生成してください。\n\n${ingredients}`;
 
   return {
     resourcePath: `/model/anthropic.claude-3-5-sonnet-20240620-v1:0/invoke`,

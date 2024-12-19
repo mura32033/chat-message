@@ -5,6 +5,7 @@ export async function generateRecipe(formData: FormData) {
     ingredients: formData.get("ingredients")?.toString() || "",
     app_type: formData.get("app_type")?.toString() || "",
     temperature: formData.get("temperature")?.toString() || "",
+    who: formData.get("who")?.toString() || "",
   });
 
   const res = JSON.parse(response.data?.body!);

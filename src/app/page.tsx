@@ -41,6 +41,20 @@ export default function Home() {
           className=" p-4 flex flex-col items-center gap-4  max-w-full mx-auto"
         >
           <select
+            name="who"
+            id="who"
+            className="border border-black  text-gray-900 p-4 rounded-lg max-w-full w-full text-xl "
+          >
+            <option value="attached_manager">直属の上司</option>
+            <option value="outbound">社外の人</option>
+            <option value="senior_close">親しい先輩</option>
+            <option value="senior_stranger">知らない先輩</option>
+            <option value="junior_close">親しい後輩</option>
+            <option value="junior_stranger">知らない後輩</option>
+            <option value="friend">友達</option>
+          </select>
+          に
+          <select
             name="app_type"
             id="app_type"
             className="border border-black  text-gray-900 p-4 rounded-lg max-w-full w-full text-xl "
@@ -49,18 +63,18 @@ export default function Home() {
             <option value="Teams">Teams</option>
             <option value="Email">メール</option>
           </select>
-          で
+          で送りたい
           <select
             name="temperature"
             id="temperature"
             className="border border-black  text-gray-900 p-4 rounded-lg max-w-full w-full text-xl "
           >
-            <option value="neutral">普通</option>
-            <option value="request">依頼</option>
-            <option value="thank">感謝</option>
-            <option value="apologize">謝罪</option>
+            <option value="neutral">普通な</option>
+            <option value="request">依頼する</option>
+            <option value="thank">感謝する</option>
+            <option value="apologize">謝罪する</option>
           </select>
-          したいことを箇条書きすると、
+          内容を箇条書きすると、
           <textarea
             id="ingredients"
             name="ingredients"

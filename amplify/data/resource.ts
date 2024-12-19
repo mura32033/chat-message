@@ -12,6 +12,7 @@ const schema = a.schema({
       ingredients: a.string(),
       app_type: a.string(),
       temperature: a.string(),
+      who: a.string(),
     })
     .returns(a.ref("BedrockResponse"))
     .authorization((allow) => allow.publicApiKey())
