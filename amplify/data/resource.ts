@@ -8,9 +8,13 @@ const schema = a.schema({
 
   askBedrock: a
     .query()
-    .arguments({ ingredients: a.string().array() })
+    .arguments({
+      ingredients: a.string(),
+      app_type: a.string(),
+      temperature: a.string(),
+    })
     .returns(a.ref("BedrockResponse"))
-    .authorization(allow => allow.publicApiKey())
+    .authorization((allow) => allow.publicApiKey())
     .handler(
       a.handler.custom({ entry: "./bedrock.js", dataSource: "bedrockDS" })
     ),
