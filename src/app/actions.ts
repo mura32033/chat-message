@@ -1,6 +1,7 @@
 import { amplifyClient } from "./amplify-utils";
 
 export async function generateRecipe(formData: FormData) {
+  console.log(formData.get("isGenerateMode") === "true");
   const response = await amplifyClient.queries.askBedrock({
     ingredients: formData.get("ingredients")?.toString() || "",
     app_type: formData.get("app_type")?.toString() || "",

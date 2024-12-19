@@ -20,7 +20,7 @@ export default function Home() {
       setloading(false);
       setResult(recipe);
     } catch (e) {
-      alert(`An error occurred: ${e}`);
+      console.error(e);
     }
   };
 
@@ -49,14 +49,32 @@ export default function Home() {
           onSubmit={onSubmit}
           className=" p-4 flex flex-col items-center gap-4  max-w-full mx-auto"
         >
-          <button
+          {/* <input
+            type="button"
+            name="isGenerateMode"
+            id="isGenerateMode"
             className={`text-white p-2 rounded-lg w-1/2 text-xl ${
               isGenerateMode ? "bg-blue-500" : "bg-green-500"
             }`}
             onClick={() => setIsGenerateMode(!isGenerateMode)}
+            value={isGenerateMode ? "true" : "false"}
           >
             クリックして{isGenerateMode ? "手動入力" : "自動生成"}モードにする
-          </button>
+          </input> */}
+          <div className="flex flex-row items-center justify-center gap-4">
+            いまは
+            <select
+              name="isGenerateMode"
+              id="isGenerateMode"
+              className="border border-black text-gray-900 p-4 rounded-lg text-xl"
+              onChange={() => setIsGenerateMode(!isGenerateMode)}
+            >
+              <option value="true">自動生成</option>
+              <option value="false">手動入力</option>
+            </select>
+            モード
+          </div>
+
           <div className="m-auto flex flex-row w-full items-center justify-center gap-4">
             <select
               name="who"
