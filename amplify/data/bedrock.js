@@ -45,6 +45,8 @@ export function request(ctx) {
     }
   };
 
+  console.log(prompt());
+
   return {
     resourcePath: `/model/anthropic.claude-3-5-sonnet-20240620-v1:0/invoke`,
     method: "POST",
