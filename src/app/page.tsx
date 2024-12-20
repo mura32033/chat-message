@@ -61,20 +61,6 @@ export default function Home() {
           >
             クリックして{isGenerateMode ? "手動入力" : "自動生成"}モードにする
           </input> */}
-          <div className="flex flex-row items-center justify-center gap-4">
-            いまは
-            <select
-              name="isGenerateMode"
-              id="isGenerateMode"
-              className="border border-black text-gray-900 p-4 rounded-lg text-xl"
-              onChange={() => setIsGenerateMode(!isGenerateMode)}
-            >
-              <option value="true">自動生成</option>
-              <option value="false">手動入力</option>
-            </select>
-            モード
-          </div>
-
           <div className="m-auto flex flex-row w-full items-center justify-center gap-4">
             <select
               name="who"
